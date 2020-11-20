@@ -161,7 +161,24 @@ namespace OpenTibiaUnity.Modules.ToggleButtons
         }
 
         public void OnLogoutButtonClick() {
+            var gameManager = OpenTibiaUnity.GameManager;
+            if (gameManager.IsGameRunning)
+            {
+                void OnLogoutPopupYesClick()
+                {
+                    var protocolGame = OpenTibiaUnity.ProtocolGame;
+                    protocolGame.Disconnect(false);
+                }
 
+                void OnLogoutPopupNoClick()
+                {
+                    // Intentionally do nothing here
+                }
+
+                var logoutWidget = UI.Legacy.MessageWidget.CreateMessageWidget(gameManager.ActiveCanvas.transform, TextResources.LOGOUT_WINDOW_TITLE, TextResources.LOGOUT_WINDOW_MESSAGE);
+                logoutWidget.AddButton(UI.Legacy.PopUpButtonMask.Yes, TextResources.LABEL_YES, OnLogoutPopupYesClick);
+                logoutWidget.AddButton(UI.Legacy.PopUpButtonMask.No, TextResources.LABEL_NO, OnLogoutPopupNoClick);
+            }
         }
 
         public void OnStoreButtonClick() {

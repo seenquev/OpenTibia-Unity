@@ -32,6 +32,8 @@
         public const string LOGIN_WEB_CLIENT_LOGIN_ERROR_NAME_RESOLUTION_FAILURE = "Host not found.";
         public const string LOGIN_WEB_CLIENT_LOGIN_ERROR_NOT_FOUND = "Error downloading {0} - server replied: not found.";
         public const string LOGIN_WAIT_TEXT = "{0}\n\nTrying to reconnect in {1}.";
+        public const string LOGOUT_WINDOW_TITLE = "Logout";
+        public const string LOGOUT_WINDOW_MESSAGE = "Are you sure you want to logout?";
 
         // Connection resources
         public const string ERRORMSG_AUTHENTICATION_ERROR = "You have entered incorrect authenticator token.";
