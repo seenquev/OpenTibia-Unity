@@ -91,7 +91,7 @@ namespace OpenTibiaUnity.UI.Legacy
             _mouseOverResizer = false;
 
             // if no drag is occuring and cursor has been pushed, then pop it
-            if (!_mouseHeldDown && _cursorPushed)
+            if (!_mouseHeldDown && !OpenTibiaUnity.InputHandler.IsAnyMousePressed() && _cursorPushed)
                 PopResizeCursor();
         }
 
