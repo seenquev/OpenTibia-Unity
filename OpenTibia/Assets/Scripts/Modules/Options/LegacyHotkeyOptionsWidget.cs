@@ -53,6 +53,10 @@ namespace OpenTibiaUnity.Modules.Options
         protected override void Awake() {
             base.Awake();
 
+            var inputHandler = OpenTibiaUnity.InputHandler;
+            if (inputHandler != null)
+                inputHandler.AddKeyUpListener(Core.Utils.EventImplPriority.UpperMedium, OnKeyUp);
+
             _lists = new Dictionary<EventModifiers, HotkeyAction[]>();
             foreach (var eventModifiers in AllowedEventModifiers)
                 _lists.Add(eventModifiers, new HotkeyAction[EndKeyCode - StartKeyCode + 1]);
@@ -107,10 +111,6 @@ namespace OpenTibiaUnity.Modules.Options
         protected override void OnEnable() {
             base.OnEnable();
 
-            var inputHandler = OpenTibiaUnity.InputHandler;
-            if (inputHandler != null)
-                inputHandler.AddKeyUpListener(Core.Utils.EventImplPriority.UpperMedium, OnKeyUp);
-
             _inputField.ActivateInputField();
             _inputField.MoveTextEnd(false);
 
@@ -121,14 +121,14 @@ namespace OpenTibiaUnity.Modules.Options
 
         protected override void OnDisable() {
             base.OnDisable();
-
-            var inputHandler = OpenTibiaUnity.InputHandler;
-            if (inputHandler != null)
-                inputHandler.RemoveKeyUpListener(OnKeyUp);
         }
 
         protected override void OnDestroy() {
             base.OnDestroy();
+
+            var inputHandler = OpenTibiaUnity.InputHandler;
+            if (inputHandler != null)
+                inputHandler.RemoveKeyUpListener(OnKeyUp);
 
             var worldMapWidget = OpenTibiaUnity.GameManager?.GetModule<UI.Legacy.WorldMapWidget>();
             if (worldMapWidget)
