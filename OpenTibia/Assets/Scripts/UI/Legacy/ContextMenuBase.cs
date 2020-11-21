@@ -62,7 +62,7 @@ namespace OpenTibiaUnity.UI.Legacy
         private void InternalCreateSeparatorItem() {
             var separatorGO = Instantiate(OpenTibiaUnity.GameManager.HorizontalSeparator, transform);
             var layoutElement = separatorGO.AddComponent<UnityUI.LayoutElement>();
-            layoutElement.minWidth = 120;
+            layoutElement.minWidth = 80;
         }
 
         protected virtual void OnSelectedToggle(int index) {
