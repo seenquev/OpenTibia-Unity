@@ -162,6 +162,19 @@ namespace OpenTibiaUnity.Modules.Console
             SetInputText(text);
         }
 
+        public void OnChatNextChannel()
+        {
+            var channelButtonRectTransform = _activeChannelTab.rectTransform;
+            int index = channelButtonRectTransform.GetSiblingIndex();
+
+            int relativeIndex = index + 1;
+            if (relativeIndex >= channelButtonRectTransform.parent.childCount)
+                relativeIndex = 0;
+            var otherChannelButton = channelButtonRectTransform.parent.GetChild(relativeIndex).GetComponent<ChannelTab>();
+
+            SelectChannelButton(otherChannelButton);
+        }
+
         public void SetNextMessage() {
             if (_historyIndex == _talkHistory.Length)
                 return;
