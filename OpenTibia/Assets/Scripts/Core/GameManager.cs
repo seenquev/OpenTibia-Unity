@@ -158,6 +158,7 @@ namespace OpenTibiaUnity.Core
         public UnityEvent onRequestHotkeysDialog { get; private set; }
         public UnityEvent onRequestChatHistoryPrev { get; private set; }
         public UnityEvent onRequestChatHistoryNext { get; private set; }
+        public UnityEvent onRequestChatNextChannel { get; private set; }
         public RequestChatSendEvent onRequestChatSend { get; private set; }
         public RequestOutfitDialogEvent onRequestOutfitDialog { get; private set; }
         public RequestNPCTradeEvent onRequestNPCTrade { get; private set; }
@@ -267,6 +268,7 @@ namespace OpenTibiaUnity.Core
             onRequestHotkeysDialog = new UnityEvent();
             onRequestChatHistoryPrev = new UnityEvent();
             onRequestChatHistoryNext = new UnityEvent();
+            onRequestChatNextChannel = new UnityEvent();
             onRequestChatSend = new RequestChatSendEvent();
             onRequestOutfitDialog = new RequestOutfitDialogEvent();
             onRequestNPCTrade = new RequestNPCTradeEvent();

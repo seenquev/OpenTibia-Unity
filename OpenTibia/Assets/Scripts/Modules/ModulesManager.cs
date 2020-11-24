@@ -67,6 +67,7 @@ namespace OpenTibiaUnity.Modules
             gameManager.onRequestHotkeysDialog.AddListener(OnRequestHotkeysDialog);
             gameManager.onRequestChatHistoryPrev.AddListener(OnRequestChatHistoryPrev);
             gameManager.onRequestChatHistoryNext.AddListener(OnRequestChatHistoryNext);
+            gameManager.onRequestChatNextChannel.AddListener(OnRequestChatNextChannel);
             gameManager.onRequestChatSend.AddListener(OnRequestChatSend);
             gameManager.onRequestOutfitDialog.AddListener(OnRequestOutfitDialog);
             gameManager.onRequestNPCTrade.AddListener(OnRequestNPCTrade);
@@ -92,6 +93,15 @@ namespace OpenTibiaUnity.Modules
                 return;
 
             chatModule.OnChatHistory(1);
+        }
+
+        private void OnRequestChatNextChannel()
+        {
+            var chatModule = OpenTibiaUnity.GameManager.GetModule<Console.ConsoleModule>();
+            if (!chatModule)
+                return;
+
+            chatModule.OnChatNextChannel();
         }
 
         private void OnRequestChatSend(string text, bool autoSend, int channelId) {

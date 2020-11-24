@@ -60,6 +60,8 @@ namespace OpenTibiaUnity.Core.Input
                 new Binding(StaticActionList.PlayerTurnLeft, '\0', KeyCode.LeftArrow, EventModifiers.Control),
                 new Binding(StaticActionList.PlayerTurnRight, '\0', KeyCode.RightArrow, EventModifiers.Control),
                 new Binding(StaticActionList.PlayerTurnDown, '\0', KeyCode.DownArrow, EventModifiers.Control),
+                new Binding(StaticActionList.ChatNextChannel, '\t', KeyCode.Tab, EventModifiers.None),
+
             };
 
             ChatModeOnDefaultBindings = new Binding[] {
@@ -99,6 +101,7 @@ namespace OpenTibiaUnity.Core.Input
                 new Binding(StaticActionList.PlayerTurnLeft, '\0', KeyCode.LeftArrow, EventModifiers.Control),
                 new Binding(StaticActionList.PlayerTurnRight, '\0', KeyCode.RightArrow, EventModifiers.Control),
                 new Binding(StaticActionList.PlayerTurnDown, '\0', KeyCode.DownArrow, EventModifiers.Control),
+                new Binding(StaticActionList.ChatNextChannel, '\t', KeyCode.Tab, EventModifiers.None),
             };
         }
 
